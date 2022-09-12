@@ -28,7 +28,7 @@ function App() {
     
     useEffect(() => {
         fetchData(startDate, endDate);
-    }, [startDate])
+    }, [startDate, endDate])
     
     const death = chartData.reduce((a,b) => {return a+b.death}, 0);
     const positive = chartData.reduce((a,b) => {return a+b.positive}, 0);

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useState, useEffect} from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -17,10 +17,14 @@ import "react-datepicker/dist/react-datepicker.css";
         setEndDate(end);        
     };
 
-    if(endDate !== null) {
-        setStart(convertDate(startDate));
-        setEnd(convertDate(endDate));
-    }
+    useEffect(() => {
+        if(endDate !== null) {
+            setStart(convertDate(startDate));
+            setEnd(convertDate(endDate));
+        }
+    }, [startDate, endDate])
+
+    
 
     return (
         <DatePicker
